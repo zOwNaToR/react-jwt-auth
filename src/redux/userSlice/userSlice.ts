@@ -35,7 +35,7 @@ export const userSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, action) => {
 				state.username = action.payload;
-				state.status = 'succeeded';
+				state.status = 'logged';
 			})
 			.addCase(login.rejected, (state, action) => {
 				state.error = action.payload?.toString();

@@ -1,5 +1,4 @@
 import { RouteObject } from 'react-router/lib/router';
-import { KeyValue } from '../../utils/types';
 import Index from '../../pages/index/Index';
 import Login from '../../pages/auth/login/Login';
 import Signup from '../../pages/auth/signup/Signup';
@@ -7,14 +6,14 @@ import ResetPassword from '../../pages/auth/reset-password/ResetPassword';
 import ForgotPassword from '../../pages/auth/forgot-password/ForgotPassword';
 import ConfirmEmail from '../../pages/auth/confirm-email/ConfirmEmail';
 
-export const ROUTE_PATHS: KeyValue<string> = {
+export const ROUTE_PATHS = {
 	INDEX: '/',
 	SIGNUP: 'signup',
 	LOGIN: 'login',
 	CONFIRM_EMAIL: 'confirm-email',
 	FORGOT_PASSWORD: 'forgot-password',
 	RESET_PASSWORD: 'reset-password',
-};
+} as const;
 
 export const ROUTES: RouteObject[] = [
 	{
