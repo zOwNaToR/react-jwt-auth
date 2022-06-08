@@ -18,7 +18,7 @@ const initialState: UserState = {
 	error: undefined,
 };
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
@@ -30,7 +30,7 @@ export const userSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
-			.addCase(login.pending, (state, action) => {
+			.addCase(login.pending, (state) => {
 				state.status = 'pending';
 			})
 			.addCase(login.fulfilled, (state, action) => {
