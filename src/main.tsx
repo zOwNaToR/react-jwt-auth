@@ -4,13 +4,17 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import WithAxios from './components/with-axios/WithAxios';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<WithAxios>
-				<App />
-			</WithAxios>
+			<Provider store={store}>
+				<WithAxios>
+					<App />
+				</WithAxios>
+			</Provider>
 		</BrowserRouter>
 	</React.StrictMode>,
 );
