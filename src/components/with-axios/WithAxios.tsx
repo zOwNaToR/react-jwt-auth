@@ -1,16 +1,18 @@
 import React, { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
 import { setupAxiosInterceptors } from '../../services/axios-service/axiosService';
 import { NFC } from '../../utils/types';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 // eslint-disable-next-line react/prop-types
 const WithAxios: NFC = ({ children }) => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
+	const user = useAppSelector((state) => state.user);
 
 	useMemo(() => {
-		// TODO Omar
-		setupAxiosInterceptors(dispatch, '');
-	}, [dispatch]);
+		if (user.token) {
+			setupAxiosInterceptors(dispatch, user.token);
+		}
+	}, [dispatch, user.token]);
 
 	return <>{children}</>;
 };
